@@ -1,0 +1,141 @@
+/****** basics ******/
+
+/* stop the content overflowing to the sides, especially with negative margins on .row */
+#MPOuterMost {
+    overflow-x: hidden;
+}
+/* hide .HtmlFooter and .MPBottomMenu, both of which add extra padding/whitespace */
+.HtmlFooter,
+.MPBottomMenu {
+    display: none;
+}
+/* remove bottom margin from empty paragraphs (eg. in widgets) to avoid whitespace */
+p:empty {
+    margin-bottom: 0;
+}
+/* this one's not HL-specific */
+/* centres all background images created using the bg image JS/ajax calls for images */
+.bg-image,
+.img-container {
+    background-size: cover;
+    background-position: center;
+}
+/* avoids 1px tall sections, especially when they hold JS but no content */
+/* can be less specific, but might break other HL functionality */
+.home .col-md-12[class*="section"] {
+    min-height: 0;
+}
+/* allows for word breaking for emails and profile inbox messages */
+body {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+/* overrides the above word breaking for yes/no toggle buttons in create event */
+#event-additional-details-container {
+    overflow-wrap: normal !important;
+    word-wrap: normal !important;
+}
+/* resets the padding on col-md-12 full-width sections */
+.row-full .col-md-12[class*="section"] {
+    padding: 0;
+}
+.row-full .col-md-6[class*="section"],
+.row-full .col-md-8[class*="section"],
+.row-full .col-md-4[class*="section"] {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+/* reset alerts to neutral colours */
+.alert-warning, .alert-success, 
+.ideation-home .alert.alert-success, 
+.ideation-detail .alert.alert-success {
+    color: inherit;
+    background-color: #f9f9f9;
+    border-color: #f5f5f5;
+}
+
+/****** fonts ******/
+body,
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: 'Open Sans', sans-serif;
+    color: #606060;
+    font-size: 16px;
+    line-height: 1.375;
+    font-weight: 300;
+}
+h1, .h1 {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.167;
+}
+h2, .h2 {
+    color: #1D1D1D;
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 1.346;
+}
+h3, .h3,
+.HLLandingControl h3 a,
+.HLLandingControl .heading h3 a {
+    color: #1F1F1F;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1.389;
+}
+a {
+    color: #296DC0;
+    text-decoration: underline;
+}
+
+/* transitions */
+a,
+a:hover,
+a:focus,
+button,
+button:hover,
+button:focus,
+input,
+input:hover,
+input:focus {
+    transition: .3s;
+}
+
+/****** header ******/
+
+/*** logo and ttl on one line ***/
+#Logo {
+    float: left;
+}
+#MPheader > .row:first-child {
+    float: right;
+}
+.skiplinkholder a, .skiplinkholder a:link, .skiplinkholder a:visited {
+    left: -500%;
+	top: -250px;
+}
+.skiplinkholder a:focus, .skiplinkholder a:active {
+    left: 0;
+	top: 0;
+}
+
+/*** logo ***/
+#DesktopLogoDiv {
+    width: 385px;
+    max-width: 100%;
+}
+
+/*** top text links ***/
+#MPAuxNav ul.level1 li a {
+    font-family: lato, sans-serif;
+    font-weight: 600;
+    color: #7C7369;
+    font-size: 13px;
+    line-height: 1.23;
+    padding: 0;
+    margin-top: 0;
+    margin-right: 20px;
+    text-decoration: none;
+}
+
+/*** login button ***/
