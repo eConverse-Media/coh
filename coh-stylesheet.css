@@ -101,7 +101,110 @@ input:focus {
     transition: .3s;
 }
 
+/*** round profile images ***/
+.Welcome .imgButton.btn,
+a[id*="ProfileImage"]:not([id*="NameLink"]):not([id*="ManageDropDown"]),
+a[id*="UserImageDisplay"],
+a[id*="Contacts_PictureLink"],
+a[id*="lnkDisplay"],
+a[id*="Welcome_Details_ProfileLink"],
+.list-group-item-image,
+a[title="User Name Image"],
+a[oldtitle="User Name Image"],
+.member-dashboard-img a,
+.dashboard-col-3 ul li .col-sm-2 a,
+.HLEngagement .Picture a,
+td.ProfilePic > a {
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    background-color: #d8d9db;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+}
+.Welcome .imgButton.btn {
+    background-color: #fff;
+}
+.list-group-item-image {
+    width: 40px;
+    height: 40px;
+}
+.list-group-item-nochild .list-group-item-image {
+    width: 20px;
+    height: 20px;
+}
+.Welcome button.btn-default.btn.imgButton {
+    width: 30px;
+    height: 30px;
+    min-height: 30px;
+    border: none;
+}
+.text-muted-h2 a[id*="ImageControl_lnkDisplay"] {
+    width: 140px;
+    height: 140px;
+    background: #f9f9f9;
+}
+.HLEngagement .Picture a {
+    width: 50px;
+    height: 50px;
+}
+a[id*="Welcome_Details_ProfileLink"] {
+    width: 60px;
+    height: 60px;
+}
+
+.imgButton img,
+a[id*="ProfileImage"] img,
+a[id*="UserImageDisplay"] img,
+a[id*="Contacts_PictureLink"] img,
+a[id*="lnkDisplay"] img,
+a[id*="Welcome_Details_ProfileLink"] img,
+.list-group-item-image img,
+a[title="User Name Image"] img,
+a[oldtitle="User Name Image"] img,
+.member-dashboard-img img,
+.dashboard-col-3 ul li .col-sm-2 a img,
+.HLEngagement .Picture a img,
+td.ProfilePic > a > img {
+    position: relative;
+    max-height: 100% !important;
+    width: auto;
+}
+
+.member-directory .member-picture {
+    text-align: center;
+}
+
 /****** header ******/
+#MPOuterHeader > .col-md-12,
+#HEADER > .col-md-12 {
+    padding: 0;
+}
+#MPOuterMost.full #HEADER {
+    max-width: 100%;
+}
+#MPheader>div.row {
+    padding: 0;
+}
+#MPheader {
+    padding: 10px 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/*** announcement ***/
+.announcement-bar {
+    background: #FFC944;
+    padding: 8px 15px;
+    text-align: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.357;
+}
 
 /*** logo and ttl on one line ***/
 #Logo {
@@ -126,7 +229,8 @@ input:focus {
 }
 
 /*** top text links ***/
-#MPAuxNav ul.level1 li a {
+#MPAuxNav ul.level1 li a,
+#Welcome_LoginLink {
     font-family: lato, sans-serif;
     font-weight: 600;
     color: #7C7369;
@@ -136,6 +240,52 @@ input:focus {
     margin-top: 0;
     margin-right: 20px;
     text-decoration: none;
+    border: none;
 }
 
 /*** login button ***/
+#Welcome_LoginLink {
+    background: transparent;
+    border-radius: 0;
+    margin-right: 0;
+}
+
+#BtnShowProfile {
+    display: none;
+}
+
+/*** search ***/
+#searchColumn {
+    display: none;
+}
+.search-btn-top {
+    background: #FAFAFA;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 12px;
+    border: none;
+    padding: 0;
+    margin-right: 30px;
+}
+.search-btn-top::before {
+    font-family: 'Font Awesome 5 Pro';
+    content: '\f002';
+    color: #296DC0;
+}
+.search-btn-top,
+.HLWelcome {
+    display: inline-block;
+}
+
+/****** responsive ******/
+@media (max-width: 767px) {
+    #searchColumn {
+        display: block;
+    }
+    .search-btn-top {
+        display: none;
+    }
+}
