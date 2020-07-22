@@ -139,14 +139,15 @@ a[oldtitle="User Name Image"],
 .member-dashboard-img a,
 .dashboard-col-3 ul li .col-sm-2 a,
 .HLEngagement .Picture a,
-td.ProfilePic > a {
+td.ProfilePic > a,
+.spotlight-info > strong {
     border-radius: 50%;
     overflow: hidden;
     position: relative;
     background-color: #d8d9db;
     display: inline-flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     width: 45px;
     height: 45px;
 }
@@ -180,6 +181,12 @@ a[id*="Welcome_Details_ProfileLink"] {
     width: 60px;
     height: 60px;
 }
+.spotlight-info > strong {
+    width: 95px;
+    height: 95px;
+    background: #fff;
+    border: 4px solid #fff;
+}
 
 .imgButton img,
 a[id*="ProfileImage"] img,
@@ -193,10 +200,11 @@ a[oldtitle="User Name Image"] img,
 .member-dashboard-img img,
 .dashboard-col-3 ul li .col-sm-2 a img,
 .HLEngagement .Picture a img,
-td.ProfilePic > a > img {
+td.ProfilePic > a > img,
+.spotlight-info > strong img {
     position: relative;
-    max-height: 100% !important;
-    width: auto;
+    max-width: 100% !important;
+    height: auto;
 }
 
 .member-directory .member-picture {
@@ -204,6 +212,13 @@ td.ProfilePic > a > img {
 }
 
 /*** buttons ***/
+.make-buttons em {
+    margin: -5px;
+    display: inline-block;
+}
+.make-buttons em a {
+    margin: 5px;
+}
 .make-buttons em a {
     font-weight: 700;
     font-size: 14px;
@@ -400,8 +415,82 @@ td.ProfilePic > a > img {
     }
 }
 
-/****** member spotlight ******/
+/****** landing controls ******/
+.sort-options-container {
+    display: none;
+}
+.HLLandingControl .Content ul li {
+    background: #fff;
+    box-shadow: 0px 4px 15px rgba(231, 232, 236, 0.3), 0px 1px 2px #E7E8EC;
+    border-radius: 1px;
+    border: none;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.HLLandingControl .ByLine,
+.HLLandingControl h5 {
+    font-size: 14px;
+    line-height: 1.14;
+    color: #7c7c7c;
+    margin-bottom: 0;
+    margin-top: 8px;
+}
 
+/****** member spotlight ******/
+.member-spotlight {
+    background: #fff;
+    border: 1px solid #E7E7E7;
+    box-shadow: 0px 4px 15px rgba(231, 232, 236, 0.3), 0px 1px 2px #E7E8EC;
+    border-radius: 1px;
+    padding: 30px 20px 155px 20px;
+    position: relative;
+    color: #7c7c7c;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 600px;
+}
+.member-spotlight::after {
+    font-family: COH;
+    content: '\f00a';
+    color: #000;
+    opacity: 0.02;
+    font-size: 200px;
+    position: absolute;
+    bottom: 120px;
+    right: 0;
+}
+.member-spotlight em {
+    margin-top: 25px;
+}
+.member-spotlight h2 {
+    margin-top: 0;
+}
+.spotlight-info {
+    background: #2a6cc0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 15px 20px 15px 130px;
+}
+.spotlight-info > strong {
+    position: absolute;
+    left: 20px;
+    top: -25px;
+}
+.member-spotlight h5 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1.4;
+}
+.spotlight-info p {
+    color: #fff;
+    margin-bottom: 0;
+}
 
 /****** footer ******/
 #MPFooterLink,

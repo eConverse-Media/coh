@@ -1,6 +1,8 @@
 $(function () {
     handleSearch();
     handleAnnouncement();
+    handleMemberSpotlight();
+    handleNewsSection();
 });
 
 function handleSearch() {
@@ -12,4 +14,17 @@ function handleAnnouncement() {
 }
 function closeAnnouncement() {
     $('.announcement-bar').hide();
+}
+
+function handleMemberSpotlight() {
+    $('.member-spotlight img').wrap('<div class="spotlight-info" />');
+    $('.spotlight-info img').wrap('<strong />');
+    $('.member-spotlight h5, .member-spotlight h5 + p').appendTo('.spotlight-info');
+}
+
+function handleNewsSection() {
+    $('.home .HLRecentBlogs ul li').each(function () {
+        var self = $(this);
+        handleAjaxCall(self);
+    });
 }
