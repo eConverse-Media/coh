@@ -63,6 +63,19 @@ body {
     padding-bottom: 60px;
 }
 
+/*** margins between sections ***/
+.margin-bottom-50 {
+    margin-bottom: 50px;
+}
+.margin-bottom-100 {
+    margin-bottom: 100px;
+}
+@media (max-width: 991px) {
+    .margin-bottom-50-mob {
+        margin-bottom: 50px;
+    }
+}
+
 /****** fonts ******/
 body,
 h1, h2, h3, h4, h5, h6,
@@ -91,8 +104,8 @@ h2, .h2 {
     padding-left: 0;
     padding-bottom: 10px;
 }
-.home h2::after,
-.home .h2::after {
+.home #MainCopy_ContentWrapper h2::after,
+.home #MainCopy_ContentWrapper .h2::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -107,6 +120,20 @@ h3, .h3,
     font-weight: 600;
     font-size: 18px;
     line-height: 1.389;
+}
+.HLLandingControl h3 a:hover,
+.HLLandingControl h3 a:focus,
+.HLLandingControl .heading h3 a:hover,
+.HLLandingControl .heading h3 a:focus {
+    color: #296DC0;
+}
+h5, .h5 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    color: #606060;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1.4;
 }
 a {
     color: #296DC0;
@@ -219,12 +246,20 @@ td.ProfilePic > a > img,
 .make-buttons em a {
     margin: 5px;
 }
-.make-buttons em a {
+.HLLandingControl div[id*="More"] .col-md-12,
+.HLLandingControl div[id*="BottomLink"] .col-md-12 {
+    padding: 0;
+}
+.make-buttons em a,
+.HLLandingControl div[id*="More"] a,
+.HLLandingControl div[id*="BottomLink"] a {
     font-weight: 700;
     font-size: 14px;
     line-height: 1.357;
     padding: 10px 12px;
     background: #F1AB00;
+    border: none;
+    border-radius: 0;
     letter-spacing: 1px;
     color: #fff;
     text-transform: uppercase;
@@ -415,9 +450,22 @@ td.ProfilePic > a > img,
     }
 }
 
+/****** about us ******/
+.about-us h2 {
+    margin-bottom: 20px;
+}
+.about-us.make-buttons em {
+    margin-top: 15px;
+}
+
 /****** landing controls ******/
 .sort-options-container {
     display: none;
+}
+.ContentUserControl .HLLandingControl,
+.HLLandingControl .Content {
+    padding: 0;
+    border: none;
 }
 .HLLandingControl .Content ul li {
     background: #fff;
@@ -434,6 +482,104 @@ td.ProfilePic > a > img,
     color: #7c7c7c;
     margin-bottom: 0;
     margin-top: 8px;
+    font-weight: 400;
+}
+.HLLandingControl .ByLine a,
+.HLLandingControl h5 a {
+    text-decoration: underline;
+}
+.HLLandingControl .ByLine a:hover,
+.HLLandingControl .ByLine a:focus,
+.HLLandingControl h5 a:hover,
+.HLLandingControl h5 a:focus {
+    text-decoration: none;
+}
+.HLLandingControl .Content ul {
+    margin-bottom: 30px;
+    padding-top: 20px;
+}
+.HLLandingControl h2 {
+    margin: 0;
+}
+.HLLandingControl ul li .title-row > .col-md-2.col-sm-2 {
+    width: 40px;
+    margin-right: 15px;
+    padding: 0;
+    float: left;
+}
+.HLLandingControl ul li .title-row > .col-md-10.col-sm-10 {
+    width: calc(100% - 55px);
+    float: left;
+    padding: 0;
+}
+
+/*** discussions ***/
+.home .HLDiscussions .Content ul li {
+    padding-left: 80px;
+    position: relative;
+}
+.home .HLDiscussions.HLLandingControl ul li .title-row > .col-md-2.col-sm-2 {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+.home .HLDiscussions .CommentPanel {
+    display: none;
+}
+.home .HLDiscussions .ByLine {
+    margin-top: 0;
+}
+
+/*** blogs ***/
+.home .HLRecentBlogs .Content ul li {
+    display: flex;
+    align-items: center;
+}
+.home .HLRecentBlogs ul li .text-container {
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: 75%;
+    padding-right: 15px;
+}
+.home .HLRecentBlogs ul li .img-container {
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: 25%;
+    min-height: 120px;
+}
+
+/*** image containers ***/
+.img-container.loading {
+    animation: colorchange 1.5s infinite;
+    -webkit-animation: colorchange 1.5s infinite;
+}
+
+@keyframes colorchange {
+    0% {
+        background: #f2f2f2;
+    }
+
+    50% {
+        background: #ddd;
+    }
+
+    100% {
+        background: #f2f2f2;
+    }
+}
+
+@-webkit-keyframes colorchange {
+    0% {
+        background: #f2f2f2;
+    }
+
+    50% {
+        background: #ddd;
+    }
+
+    100% {
+        background: #f2f2f2;
+    }
 }
 
 /****** member spotlight ******/
@@ -445,10 +591,6 @@ td.ProfilePic > a > img,
     padding: 30px 20px 155px 20px;
     position: relative;
     color: #7c7c7c;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    max-width: 600px;
 }
 .member-spotlight::after {
     font-family: COH;
@@ -466,6 +608,9 @@ td.ProfilePic > a > img,
 .member-spotlight h2 {
     margin-top: 0;
 }
+.member-spotlight h5 {
+    color: #fff;
+}
 .spotlight-info {
     background: #2a6cc0;
     position: absolute;
@@ -479,14 +624,7 @@ td.ProfilePic > a > img,
     left: 20px;
     top: -25px;
 }
-.member-spotlight h5 {
-    margin-top: 0;
-    margin-bottom: 8px;
-    color: #fff;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 1.4;
-}
+
 .spotlight-info p {
     color: #fff;
     margin-bottom: 0;
@@ -614,5 +752,23 @@ td.ProfilePic > a > img,
     }
     .footer-top-row > .col-md-3:nth-child(3) {
         margin-bottom: 20px;
+    }
+}
+@media (max-width: 550px) {
+    .home .HLLandingControl ul li .text-container {
+        flex-basis: 100%;
+    }
+    .home .HLLandingControl ul li .img-container {
+        display: none;
+    }
+}
+@media (max-width: 450px) {
+    .home .HLDiscussions .Content ul li {
+        padding-left: 20px;
+    }
+    .home .HLDiscussions.HLLandingControl ul li .title-row > .col-md-2.col-sm-2 {
+        position: relative;
+        top: auto;
+        left: auto;
     }
 }

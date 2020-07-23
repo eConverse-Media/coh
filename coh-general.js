@@ -1,8 +1,9 @@
 $(function () {
     handleSearch();
     handleAnnouncement();
-    handleMemberSpotlight();
+    handleDiscussions();
     handleNewsSection();
+    handleMemberSpotlight();
 });
 
 function handleSearch() {
@@ -26,7 +27,27 @@ function handleNewsSection() {
     $('.home .HLRecentBlogs ul li').each(function () {
         var self = $(this);
         handleAjaxCall(self);
+
+        $(self).find('.title-row').wrap('<div class="text-container" />');
+        $(self).find('.content-row').insertAfter($(self).find('.title-row'));
     });
+}
+
+function handleDiscussions() {
+    $('.home .HLDiscussions ul li').each(function () {
+        var self = $(this);
+        handleByLineAndPostedIn(self);
+    });
+}
+
+function handleByLineAndPostedIn(self) {
+    var ByLine = $(self).find('.ByLine'),
+        postedIn = $(self).find('h5');
+
+    $(ByLine).appendTo(self);
+    if (!!($(postedIn).html())) {
+        $(postedIn).insertAfter(ByLine);
+    }
 }
 
 function handleAjaxCall(self) {
@@ -35,7 +56,7 @@ function handleAjaxCall(self) {
     // handle image 
 
     var imgContainer = '<div class="img-container loading" />';
-    $(self).prepend(imgContainer);
+    $(self).append(imgContainer);
     $.ajax({
         url: href,
         dataType: 'html',
