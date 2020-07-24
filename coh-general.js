@@ -55,11 +55,10 @@ function closeAnnouncement() {
 }
 
 function handleLink(self) {
-    var link = $(self).find('h3 a'),
+    var link = !!($(self).find('h3 a').html()) ? $(self).find('h3 a') : $(self).find('h2 a'),
         href = $(link).attr('href'),
         isHtmlContent = !!($(self).find('.HtmlContent').html()) ? true : false,
         linkHtml;
-
 
     if ($(link).attr('target') == '_blank') {
         linkHtml = '<a href="' + href + '" target="_blank" rel="noopener" />';

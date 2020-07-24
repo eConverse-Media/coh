@@ -116,6 +116,12 @@ h2, .h2 {
     width: 30px;
     border-bottom: 4px solid #F1AB00;
 }
+.home #MainCopy_ContentWrapper .no-border h2 {
+    padding-bottom: 0;
+}
+.home #MainCopy_ContentWrapper .no-border h2::after {
+    display: none;
+}
 h3, .h3,
 .HLLandingControl h3 a,
 .HLLandingControl .heading h3 a {
@@ -792,9 +798,11 @@ td.ProfilePic > a > img,
 .home .HLEventList .Content ul li {
     padding: 0;
     box-shadow: none;
+    margin-bottom: 0;
 }
 .home .HLEventList .Content ul li .title-row > .col-md-3,
-.home .HLEventList .pull-right + br {
+.home .HLEventList .pull-right + br,
+.home .HLEventList .row.heading {
     display: none;
 }
 .home .HLEventList .Content ul li .title-row > .col-md-9 {
@@ -803,6 +811,7 @@ td.ProfilePic > a > img,
 .tiles,
 .home .HLEventList .Content ul {
     display: flex;
+    padding-top: 0;
 }
 .tiles .col-md-4[class*="section"],
 .tiles .col-md-8[class*="section"],
@@ -820,13 +829,15 @@ td.ProfilePic > a > img,
 .tiles .col-md-8 {
     flex-basis: 66.6666666667%;
 }
-.tile {
+.tile,
+.tile.no-hover a,
+.tile.no-hover .HtmlContent {
     flex-grow: 0;
     flex-shrink: 1;
     flex-basis: 100%;
     display: flex;
 }
-.tile a,
+.tile > a,
 .home .HLEventList .Content ul li a {
     overflow: hidden;
     text-decoration: none;
@@ -837,9 +848,18 @@ td.ProfilePic > a > img,
     flex-shrink: 1;
     flex-basis: 100%;
 }
-.tile a {
+.tile > a {
     padding: 50px 20px;
     min-height: 370px;
+}
+.tile.no-hover a {
+    min-height: 305px;
+    padding: 45px 20px;
+}
+.tile.no-hover .HtmlContent {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 .home .HLEventList .Content ul li a {
     background-size: cover;
@@ -847,7 +867,7 @@ td.ProfilePic > a > img,
     min-height: 280px;
     padding: 70px 20px;
 }
-.tile a::before,
+.tile > a::before,
 .home .HLEventList .Content ul li a::before {
     content: '';
     position: absolute;
@@ -857,15 +877,20 @@ td.ProfilePic > a > img,
     bottom: 0;
     opacity: 0.8;
 }
-.tile a:hover::before,
-.tile a:focus::before,
+.tile:not(.no-hover) > a:hover::before,
+.tile:not(.no-hover) > a:focus::before,
 .home .HLEventList .Content ul li a:hover::before,
 .home .HLEventList .Content ul li a:focus::before {
     opacity: 0.95;
 }
-.tile a::before,
-.tile a:hover::before,
-.tile a:focus::before,
+.tile.no-img > a::before,
+.tile.no-img > a:hover::before,
+.tile.no-img > a:focus::before {
+    opacity: 1;
+}
+.tile > a::before,
+.tile > a:hover::before,
+.tile > a:focus::before,
 .tile .HtmlContent,
 .tile p,
 .tile em,
@@ -877,7 +902,10 @@ td.ProfilePic > a > img,
 .home .HLEventList .Content ul li div[id*="LocationPanel"] {
     transition: .3s;
 }
-.tile.blue a::before,
+.tile.blue a::before {
+    background: #296DC0
+}
+.tile.turquoise a::before,
 .home .HLEventList .Content ul li:last-child a::before {
     background: #5A94AE;
 }
@@ -888,6 +916,20 @@ td.ProfilePic > a > img,
 .tile.green a::before,
 .home .HLEventList .Content ul li:nth-child(2) a::before {
     background: #289728;
+}
+.tile.grey a::before {
+    background: #7C7369;
+}
+.tile > a::after {
+    font-family: COH;
+    position: absolute;
+    bottom: 0;
+    right: 25px;
+    color: rgba(0,0,0,0.03);
+    font-size: 250px;
+}
+.tile.calendar > a::after {
+    content: '\f005';
 }
 .tile h3 {
     margin: 0;
@@ -905,35 +947,40 @@ td.ProfilePic > a > img,
 .tile h2 {
     margin-top: 8px;
     margin-bottom: 15px;
-    padding-bottom: 0;
-}
-.tile h2::after {
-    display: none;
 }
 .tile .HtmlContent {
     position: relative;
     transform: translateY(175px);
 }
+.tile h6 {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 8px 6px;
+    background: #28BFE5;
+    margin-top: 0;
+}
 .home .HLEventList .Content ul li > a > div {
     position: relative;
     transform: translateY(120px);
 }
-.tile a:hover .HtmlContent,
-.tile a:focus .HtmlContent,
+.tile > a:hover .HtmlContent,
+.tile > a:focus .HtmlContent,
+.tile.no-hover .HtmlContent,
 .home .HLEventList .Content ul li > a:hover > div,
 .home .HLEventList .Content ul li > a:focus > div {
     transform: translateY(0);
 }
-.tile p,
-.tile em,
+.tile:not(.no-hover) p,
 .home .HLEventList .Content ul li .timeAgoFormat,
 .home .HLEventList .Content ul li div[id*="LocationPanel"] {
     opacity: 0;
 }
-.tile a:hover p,
-.tile a:focus p,
-.tile a:hover em,
-.tile a:focus em,
+.tile > a:hover p,
+.tile > a:focus p,
 .home .HLEventList .Content ul li a:hover .timeAgoFormat,
 .home .HLEventList .Content ul li a:focus .timeAgoFormat,
 .home .HLEventList .Content ul li a:hover div[id*="LocationPanel"],
@@ -976,6 +1023,9 @@ td.ProfilePic > a > img,
     margin-top: 30px;
 }
 .tile.blue .HtmlContent > em {
+    color: #296DC0;
+}
+.tile.turquoise .HtmlContent > em {
     color: #5A94AE;
 }
 .tile.yellow .HtmlContent > em {
@@ -983,6 +1033,10 @@ td.ProfilePic > a > img,
 }
 .tile.green .HtmlContent > em {
     color: #289728;
+}
+.tile.grey .HtmlContent > em {
+    color: #fff;
+    background-color: #f1ab00;
 }
 .home .HLEventList .Content ul li:first-child a {
     background-image: url("https://higherlogicdownload.s3.amazonaws.com/CCGCOP/44c83e86-513d-42d6-b779-70c3625da6b3/UploadedImages/homepage/event-1-bg.jpeg");
@@ -1280,11 +1334,13 @@ td.ProfilePic > a > img,
     .footer-attribution {
         text-align: center;
     }
-    .tiles {
+    .tiles,
+    .home .HLEventList .Content ul {
         flex-wrap: wrap;
     }
     .tiles .col-md-4[class*="section"],
-    .tiles .col-md-8[class*="section"] {
+    .tiles .col-md-8[class*="section"],
+    .home .HLEventList .Content ul li {
         flex-basis: 100%;
     }
     .icons > .col-md-12 {
