@@ -700,6 +700,152 @@ td.ProfilePic > a > img,
     content: '\f009';
 }
 
+/****** dashboard ******/
+.member-dashboard {
+    background: linear-gradient(90deg, #00326F 0%, rgba(47, 47, 47, 0) 100%), #296DC0;
+}
+.member-dashboard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: calc(50% - 600px);
+    right: calc(50% - 600px);
+    bottom: 0;
+    background-image: url('https://higherlogicdownload.s3.amazonaws.com/CCGCOP/44c83e86-513d-42d6-b779-70c3625da6b3/UploadedImages/homepage/dashboard-bg-img.png');
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-size: auto 340px;
+    display: block;
+    opacity: 0.05;
+}
+.open.member-dashboard>.row.row-wide.dashboard-inner {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    height: 340px;
+}
+.member-dashboard .greeting,
+.member-dashboard.open .greeting {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+}
+.member-dashboard .greeting > a {
+    text-transform: none;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+}
+.member-dashboard.open .greeting > a {
+    font-size: 24px;
+    line-height: 1.25;
+}
+.member-dashboard .greeting .email-content::before {
+    font-family: COH;
+    content: '\f007';
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: 400;
+}
+.member-dashboard:not(.open) .greeting .email-content {
+    margin-top: 2px;
+}
+.member-dashboard .greeting .email-content a {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    text-decoration: none;
+}
+.member-dashboard .greeting .email-content a:hover,
+.member-dashboard .greeting .email-content a:focus {
+    text-decoration: underline;
+}
+.member-dashboard .progress-text {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 18px;
+}
+.member-dashboard .progress-bar-info {
+    background: #296DC0;
+    font-family: lato, sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+}
+.member-dashboard .dashboard-link {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    margin-bottom: 15px;
+}
+.member-dashboard .dashboard-link i {
+    font-size: 16px;
+}
+#MainCopy_ContentWrapper .member-dashboard h2::after {
+    display: none;
+}
+.member-dashboard .get-started h2 {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    margin-bottom: 0;
+}
+.member-dashboard .dashboard-col-3 .HLLandingControl .heading h2 {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.2;
+    padding-bottom: 0;
+    margin-bottom: 8px;
+}
+.member-dashboard .dashboard-btn em a {
+    background: #296DC0;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 10px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.4;
+    letter-spacing: 1px;
+}
+.member-dashboard .dashboard-btn em a:hover,
+.member-dashboard .dashboard-btn em a:focus {
+    background: #2767B6;
+}
+.member-dashboard .dashboard-toggle button {
+    left: auto;
+    transform: none;
+    right: calc(50% - 600px);
+    border-radius: 2px 2px 0 0;
+    font-size: 10px;
+    line-height: 1.6;
+    letter-spacing: 1px;
+    color: #4B4B4B;
+}
+.member-dashboard .dashboard-col-3 .SearchResults.HLLandingControl ul {
+    padding-top: 0;
+    overflow-y: hidden;
+    max-height: none;
+}
+.member-dashboard .dashboard-col-3 .HLLandingControl ul li {
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+    color: #fff;
+}
+.member-dashboard .dashboard-col-3 .HLLandingControl ul li h3 a,
+.member-dashboard .dashboard-col-3 .HLLandingControl ul li h5,
+.member-dashboard .dashboard-col-3 .HLLandingControl ul li h5 a,
+.member-dashboard .dashboard-col-3 .HLLandingControl ul li h5 a:hover,
+.member-dashboard .dashboard-col-3 .HLLandingControl ul li h5 a:focus {
+    color: #fff;
+}
+.member-dashboard .dashboard-col-3 .HLLandingControl ul li h5 {
+    font-size: 14px;
+    line-height: 16px;
+}
+.member-dashboard .dashboard-col-3 .HLLandingControl ul li p {
+    font-size: 16px;
+    line-height: 1.4;
+}
+
 /****** about us ******/
 .about-us h2 {
     margin-bottom: 20px;
@@ -1302,6 +1448,9 @@ td.ProfilePic > a > img,
     .slider ul.slick-dots {
         left: 15px;
     }
+    .member-dashboard .dashboard-toggle button {
+        right: 15px;
+    }
 }
 @media (max-width: 1200px) {
     #NAV {
@@ -1351,6 +1500,9 @@ td.ProfilePic > a > img,
     }
     .main-slide .HtmlContent {
         padding-right: 25%;
+    }
+    .open.member-dashboard>.row.row-wide.dashboard-inner {
+        height: 375px;
     }
 }
 @media (max-width: 767px) {

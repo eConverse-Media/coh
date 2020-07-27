@@ -1,6 +1,7 @@
 $(function () {
     handleSearch();
     handleAnnouncement();
+    handleDashboardWidget();
     handleQuickLinks();
     handleTiles();
     handleDiscussions();
@@ -52,6 +53,13 @@ function handleAnnouncement() {
 }
 function closeAnnouncement() {
     $('.announcement-bar').hide();
+}
+
+function handleDashboardWidget() {
+    $('.dashboard-col-3 .HLLandingControl ul li').each(function () {
+        var self = $(this);
+        handleByLineAndPostedIn(self);
+    });
 }
 
 function handleLink(self) {
@@ -134,7 +142,11 @@ function handleByLineAndPostedIn(self) {
 
     $(ByLine).appendTo(self);
     if (!!($(postedIn).html())) {
-        $(postedIn).insertAfter(ByLine);
+        if (!!($(ByLine).html())) {
+            $(postedIn).insertAfter(ByLine);
+        } else {
+            $(postedIn).appendTo(self);
+        }
     }
 }
 
