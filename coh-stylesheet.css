@@ -253,6 +253,7 @@ td.ProfilePic > a > img,
 }
 
 /*** buttons ***/
+
 .make-buttons em {
     margin: -5px;
     display: inline-block;
@@ -288,6 +289,39 @@ td.ProfilePic > a > img,
 .HLLandingControl div[id*="BottomLink"] a:hover,
 .HLLandingControl div[id*="BottomLink"] a:focus {
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), #F1AB00;
+}
+
+/* default HL buttons */
+.btn:not(.dropdown-toggle) {
+	white-space: normal;
+}
+
+.btn {
+	font-weight: 700;
+    font-size: 14px;
+    line-height: 1.357;
+    border-radius: 0;
+}
+.btn.btn-primary {
+    color: #fff;
+    background-color: #296DC0;
+    border-color: #296DC0;
+}
+.btn.btn-primary:hover,
+.btn.btn-primary:focus {
+    background-color: #2767B6;
+    border-color: #2767B6;
+}
+.btn.btn-success {
+    color: #fff;
+    background-color: #F1AB00;
+    border-color: #F1AB00;
+}
+.btn.btn-success:hover,
+.btn.btn-success:focus {
+    color: #fff;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), #F1AB00;
+    border-color: #F1AB00;
 }
 
 /****** header ******/
