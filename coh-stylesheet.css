@@ -116,6 +116,10 @@ h2, .h2 {
     width: 30px;
     border-bottom: 4px solid #F1AB00;
 }
+.home #MainCopy_ContentWrapper .text-right h2::after {
+    right: 0;
+    left: auto;
+}
 .home #MainCopy_ContentWrapper .no-border h2 {
     padding-bottom: 0;
 }
@@ -181,7 +185,8 @@ a[oldtitle="User Name Image"],
 .dashboard-col-3 ul li .col-sm-2 a,
 .HLEngagement .Picture a,
 td.ProfilePic > a,
-.spotlight-info > strong {
+.spotlight-info > strong,
+.testimonial .HtmlContent > strong {
     border-radius: 50%;
     overflow: hidden;
     position: relative;
@@ -222,6 +227,10 @@ a[id*="Welcome_Details_ProfileLink"] {
     width: 60px;
     height: 60px;
 }
+.testimonial .HtmlContent > strong {
+    width: 80px;
+    height: 80px;
+}
 .spotlight-info > strong {
     width: 95px;
     height: 95px;
@@ -242,7 +251,8 @@ a[oldtitle="User Name Image"] img,
 .dashboard-col-3 ul li .col-sm-2 a img,
 .HLEngagement .Picture a img,
 td.ProfilePic > a > img,
-.spotlight-info > strong img {
+.spotlight-info > strong img,
+.testimonial .HtmlContent > strong img {
     position: relative;
     max-width: 100% !important;
     height: auto;
@@ -853,6 +863,10 @@ td.ProfilePic > a > img,
     letter-spacing: 1px;
     color: #4B4B4B;
 }
+.member-dashboard .dashboard-toggle button:hover,
+.member-dashboard .dashboard-toggle button:focus {
+    color: #296DC0;
+}
 .member-dashboard .dashboard-col-3 .SearchResults.HLLandingControl ul {
     padding-top: 0;
     overflow-y: hidden;
@@ -1155,6 +1169,7 @@ td.ProfilePic > a > img,
     transform: translateY(0);
 }
 .tile:not(.no-hover) p,
+.tile:not(.no-hover) em,
 .home .HLEventList .Content ul li .timeAgoFormat,
 .home .HLEventList .Content ul li div[id*="LocationPanel"] {
     opacity: 0;
@@ -1401,6 +1416,79 @@ td.ProfilePic > a > img,
     margin-bottom: 0;
 }
 
+/****** testimonials ******/
+.testimonials img {
+    width: 500px;
+}
+.testimonials {
+    margin-bottom: -325px;
+}
+.testimonial-slider.slick-dotted.slick-slider {
+    margin-bottom: 200px;
+    margin-left: -20px;
+    margin-right: -20px;
+}
+.testimonial {
+    padding: 20px;
+}
+.testimonial .HtmlContent {
+    background: #fff;
+    border: 1px solid #E7E7E7;
+    box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.05), 0px 2px 5px rgba(0, 0, 0, 0.05);
+    padding: 30px 40px 30px 140px;
+    position: relative;
+    margin-left: 30%;
+}
+.testimonial .HtmlContent::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 30px;
+    bottom: 0;
+    opacity: 0.02;
+    background-size: auto 100px;
+    background-position: right bottom;
+    background-image: url('https://higherlogicdownload.s3.amazonaws.com/CCGCOP/44c83e86-513d-42d6-b779-70c3625da6b3/UploadedImages/homepage/testimonial-coh-people.png');
+    background-repeat: no-repeat;
+}
+.testimonial .HtmlContent > strong {
+    position: absolute;
+    top: 30px;
+    left: 40px;
+}
+.testimonial h5 {
+    font-size: 16px;
+    color: #000;
+}
+.testimonial h6 {
+    font-style: italic;
+    font-size: 14px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.testimonial-slider .slick-arrow {
+    position: absolute;
+    bottom: -50px;
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    font-size: 40px;
+    line-height: 1;
+    text-align: center;
+    color: #F1AB00;
+    padding: 0;
+    border-radius: 0;
+}
+.testimonial-slider .next-arrow {
+    right: 0;
+}
+.testimonial-slider .prev-arrow {
+    right: 60px;
+}
+
 /****** footer ******/
 #MPFooterLink,
 #MPCopyright {
@@ -1502,6 +1590,11 @@ td.ProfilePic > a > img,
         float: right;
     }
 }
+@media (max-width: 992px) {
+    .testimonial-slider .next-arrow {
+        right: 10px;
+    }
+}
 @media (max-width: 991px) {
     .footer-top-row {
         flex-wrap: wrap;
@@ -1538,6 +1631,9 @@ td.ProfilePic > a > img,
     .open.member-dashboard>.row.row-wide.dashboard-inner {
         height: 375px;
     }
+    .testimonial .HtmlContent {
+        margin-left: 0;
+    }
 }
 @media (max-width: 767px) {
     #searchColumn {
@@ -1567,6 +1663,15 @@ td.ProfilePic > a > img,
     }
     .footer-top-row > .col-md-3:nth-child(3) {
         margin-bottom: 20px;
+    }
+    .testimonials img {
+        display: none;
+    }
+    .testimonials {
+        margin-bottom: 0;
+    }
+    .testimonial-slider.slick-dotted.slick-slider {
+        margin-bottom: 30px;
     }
 }
 @media (max-width: 550px) {
