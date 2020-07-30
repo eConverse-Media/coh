@@ -67,10 +67,14 @@ body {
 }
 
 /*** margins between sections ***/
+.margin-bottom-100 {
+    margin-bottom: 100px;
+}
 .margin-bottom-50 {
     margin-bottom: 50px;
 }
 @media (max-width: 991px) {
+    .margin-bottom-100,
     .margin-bottom-50-mob {
         margin-bottom: 50px;
     }
@@ -352,6 +356,14 @@ td.ProfilePic > a > img,
     padding: 10px 15px;
     max-width: 1200px;
     margin: 0 auto;
+}
+#MPheader::before,
+#MPheader::after {
+    display: table;
+    content: ' ';
+}
+#MPheader::after {
+    clear: both;
 }
 #MPheader > div.row:first-child > .col-md-12 > .pull-right:nth-child(2) {
     max-width: calc(100% - 30px);
@@ -675,7 +687,7 @@ td.ProfilePic > a > img,
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: #4B4B4B;
+    background: rgba(0,0,0,0.2);
 }
 .slider ul.slick-dots li button:hover,
 .slider ul.slick-dots li button:focus {
@@ -872,7 +884,9 @@ td.ProfilePic > a > img,
     overflow-y: hidden;
     max-height: none;
 }
-.member-dashboard .dashboard-col-3 .HLLandingControl ul li {
+.member-dashboard .dashboard-col-3 .HLLandingControl ul li,
+.member-dashboard .dashboard-col-3 .HLLandingControl ul li:hover,
+.member-dashboard .dashboard-col-3 .HLLandingControl ul li:focus {
     background: transparent;
     padding: 0;
     box-shadow: none;
@@ -943,6 +957,9 @@ td.ProfilePic > a > img,
 }
 
 /****** quick links ******/
+.quick-link:nth-child(2) {
+    margin-top: 20px;
+}
 .quick-link a {
     background: #296DC0;
     box-shadow: 0px 4px 4px #E7E8EC, 0px 1px 2px #E7E8EC;
@@ -1176,17 +1193,28 @@ td.ProfilePic > a > img,
 }
 .tile > a:hover p,
 .tile > a:focus p,
+.tile > a:hover em,
+.tile > a:focus em,
 .home .HLEventList .Content ul li a:hover .timeAgoFormat,
 .home .HLEventList .Content ul li a:focus .timeAgoFormat,
 .home .HLEventList .Content ul li a:hover div[id*="LocationPanel"],
 .home .HLEventList .Content ul li a:focus div[id*="LocationPanel"] {
     opacity: 1;
 }
+.home .HLEventList h4,
 .home .HLEventList .Content ul li .timeAgoFormat,
 .home .HLEventList .Content ul li div[id*="LocationPanel"] {
     font-family: lato, sans-serif;
     font-size: 14px;
     line-height: 22px;
+    color: #fff;
+}
+.home .HLEventList h4 {
+    position: absolute;
+    top: -35px;
+}
+.home .HLEventList .Content ul li .row.title-row {
+    padding-top: 22px;
 }
 .home .HLEventList .Content ul li .timeAgoFormat {
     margin-bottom: 10px;
@@ -1260,6 +1288,12 @@ td.ProfilePic > a > img,
     border: none;
     padding: 20px;
     margin-bottom: 20px;
+    transition: .3s;
+}
+.HLLandingControl .Content ul li:hover,
+.HLLandingControl .Content ul li:focus {
+    background: #fbfbfb;
+    transition: .3s;
 }
 .HLLandingControl .ByLine,
 .HLLandingControl h5 {
@@ -1424,7 +1458,7 @@ td.ProfilePic > a > img,
     margin-bottom: -325px;
 }
 .testimonial-slider.slick-dotted.slick-slider {
-    margin-bottom: 200px;
+    margin-bottom: 100px;
     margin-left: -20px;
     margin-right: -20px;
 }
@@ -1527,6 +1561,7 @@ td.ProfilePic > a > img,
     text-transform: uppercase;
     color: #4B4B4B;
     letter-spacing: 1px;
+    padding-bottom: 0;
 }
 .footer-top-row,
 .footer-top-row a {
@@ -1540,6 +1575,15 @@ td.ProfilePic > a > img,
 .footer-top-row a:hover,
 .footer-top-row a:focus {
     text-decoration: underline;
+}
+.footer-top-row p {
+    margin-bottom: 8px;
+}
+.footer-logo {
+    margin-top: -14px;
+}
+.footer-logo img {
+    max-width: 90%;
 }
 .footer-bottom-row {
     background: #EEF1F5;
@@ -1658,6 +1702,9 @@ td.ProfilePic > a > img,
     }
 }
 @media (max-width: 600px) {
+    .footer-logo {
+        margin-top: 0;
+    }
     .footer-top-row > .col-md-3[class*="section"] {
         flex-basis: 100%;
     }
