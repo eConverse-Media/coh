@@ -777,8 +777,13 @@ td.ProfilePic>a>img,
     margin-bottom: 0;
 }
 
-.main-slide {
+.slider .slick-track {
+    display: flex;
+}
+
+.main-slide.slick-slide {
     position: relative;
+    height: auto;
 }
 
 .main-slide::before {
